@@ -32,7 +32,7 @@ RUN apt-get update && \
     wget vim unzip \
     libjpeg8 libjpeg62-dev libfreetype6 libfreetype6-dev \
     squashfs-tools zlib1g-dev liblzma-dev cmake \
-    z3 net-tools strace ltrace \
+    z3 net-tools netcat strace ltrace \
     gcc-multilib g++-multilib ruby-full binutils-mips-linux-gnu sudo
 
 

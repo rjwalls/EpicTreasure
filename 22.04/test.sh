@@ -119,6 +119,10 @@ if !(netstat  2>&1 | rg "Active Internet connections" 2>&1 >/dev/null); then
     echo net-tools
    bad=1
 fi
+if !(nc  2>&1 | rg "usage: nc" 2>&1 >/dev/null); then
+    echo netcat
+   bad=1
+fi
 if !(python3 -c "import angr" 2>&1); then
     echo angr
    bad=1
