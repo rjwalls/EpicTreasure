@@ -32,7 +32,7 @@ RUN apt-get update && \
     wget vim unzip \
     libjpeg8 libjpeg62-dev libfreetype6 libfreetype6-dev \
     squashfs-tools zlib1g-dev liblzma-dev cmake \
-    z3 net-tools strace ltrace \
+    z3 net-tools netcat strace ltrace \
     gcc-multilib g++-multilib ruby-full binutils-mips-linux-gnu sudo
 
 
@@ -177,7 +177,7 @@ RUN /root/.cargo/bin/cargo install ripgrep exa bat
 RUN wget -O ~/.gdbinit-gef.py -q https://gef.blah.cat/py && \
     echo source ~/.gdbinit-gef.py > ~/.gdbinit && \
     python3 -m pip install ropper
-RUN wget -O ~/.gdbinit-gef-extras.sh -q https://github.com/hugsy/gef/raw/master/scripts/gef-extras.sh && \
+RUN wget -O ~/.gdbinit-gef-extras.sh -q https://raw.githubusercontent.com/hugsy/gef/master/scripts/gef-extras.sh && \
     chmod +x ~/.gdbinit-gef-extras.sh && \
     ~/.gdbinit-gef-extras.sh
 
