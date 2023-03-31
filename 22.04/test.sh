@@ -139,8 +139,8 @@ if !(patchelf --version 2>&1 | rg "patchelf" 2>&1 >/dev/null); then
     echo patchelf 
    bad=1
 fi
-if !(pwninit -h 2>&1 | rg "pwninit" 2>&1 >/dev/null); then
-    echo pwninit 
+if !(python3 -c "import tqdm" 2>&1); then
+    echo tqdm 
    bad=1
 fi
 if [ $bad -eq 1 ]; then

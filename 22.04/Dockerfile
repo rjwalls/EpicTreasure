@@ -224,9 +224,6 @@ RUN git clone --depth 1 https://github.com/capstone-engine/capstone && \
 
 RUN apt-get -y install file less 
 
-# Install binary patching utils
-RUN cargo install pwninit
-
 # Install patchelf 
 RUN apt-get -y install autoconf && \
   git clone --depth 1 https://github.com/NixOS/patchelf.git && \
@@ -235,6 +232,9 @@ RUN apt-get -y install autoconf && \
   ./configure && \
   make && \
   make install
+
+# Install tqdm (python progress bar)
+RUN python3 -m pip install tqdm
 
 # Install utils needed for how2heap
 # RUN patchelf gawk 
