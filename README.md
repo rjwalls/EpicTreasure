@@ -14,7 +14,7 @@ And more!
 
 ```
 docker pull rjwalls/epictreasure
-docker run --privileged -v ${PWD}:/root/host-share --rm -it --workdir=/root rjwalls/epictreasure tmux
+docker run --privileged -v ${PWD}:/root/host-share --rm -it --workdir=/root/host-share rjwalls/epictreasure tmux
 ```
 
 ### Tmux

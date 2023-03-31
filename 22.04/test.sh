@@ -135,7 +135,16 @@ if !(gdb --version 2>&1 | rg "GNU gdb" 2>&1 >/dev/null); then
     echo gdb
    bad=1
 fi
+if !(patchelf --version 2>&1 | rg "patchelf" 2>&1 >/dev/null); then
+    echo patchelf 
+   bad=1
+fi
+if !(pwninit -h 2>&1 | rg "pwninit" 2>&1 >/dev/null); then
+    echo pwninit 
+   bad=1
+fi
 if [ $bad -eq 1 ]; then
 	exit 1
 fi
+
 exit 0

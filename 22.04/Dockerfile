@@ -129,8 +129,6 @@ RUN apt update && \
     pip3 install https://github.com/nongiach/arm_now/archive/master.zip --upgrade && \
     apt clean
 
-
-
 # Install DrMemory
 RUN cd /root/tools && \
     wget https://github.com/DynamoRIO/drmemory/releases/download/release_1.11.0/DrMemory-Linux-1.11.0-2.tar.gz && \
@@ -224,7 +222,22 @@ RUN git clone --depth 1 https://github.com/capstone-engine/capstone && \
     ./make.sh install && \
     python3 -m pip install capstone 
 
-RUN apt-get -y install file
+RUN apt-get -y install file less 
+
+# Install binary patching utils
+RUN cargo install pwninit
+
+# Install patchelf 
+RUN apt-get -y install autoconf && \
+  git clone --depth 1 https://github.com/NixOS/patchelf.git && \
+  cd patchelf && \
+  ./bootstrap.sh && \
+  ./configure && \
+  make && \
+  make install
+
+# Install utils needed for how2heap
+# RUN patchelf gawk 
 
 # Personal dotfiles
 #RUN cd /root && \
